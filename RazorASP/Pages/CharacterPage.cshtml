@@ -1,0 +1,34 @@
+﻿@page
+@model RazorASP.Pages.CharacterPageModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="container">
+    @foreach (var movie in CharactersLib.StorageCharacters.charcters)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@movie.ImgURL" class="card-img-top" alt="...">
+            <div class="card-body">
+				<h5 class="card-title">@movie.Name<h5>
+                <p class="card-text">Класс @movie.Class</p>
+                <p class="card-text">Уровень @movie.Level</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <p>Создание нового героя</p>
+        <form method="post">
+            <div>
+                <input asp-for="Character.Name" type="text" placeholder="Введите имя героя: "/>
+            </div>
+            <div>
+                <input asp-for="Character.Class" type="text" placeholder="Введите класс героя: " />
+            </div>
+            <div>
+                <input asp-for="Character.ImgURL" type="text" placeholder="Введите адрес аватара: " />
+            </div>
+            <input type="submit"/>
+        </form>
+    </div>
+</div>
